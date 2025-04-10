@@ -1,3 +1,7 @@
 venv/
 
 pyrightconfig.json
+
+finances.db
+
+__pycache__/
