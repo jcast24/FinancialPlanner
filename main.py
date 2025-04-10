@@ -2,8 +2,9 @@ from datetime import datetime
 import database
 
 def get_date() -> str:
-    now = datetime.now()
-    date = now.strftime("%d%m%Y")
+    # now = datetime.now()
+    # date = now.strftime("%d%m%Y")
+    date = input("Enter the date (DD/MM/YYYY): ")
     return date
 
 def calculate_monthly_spending() -> list[float]:
