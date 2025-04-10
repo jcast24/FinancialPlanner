@@ -1,5 +1,5 @@
 import sqlite3
-
+import pandas as pd
 from main import calculate_monthly_spending, get_date
 
 def db_connection(db_name):
@@ -65,7 +65,11 @@ def list_all_records():
 
         # In the future find a better way of representing this data to
         # make it look better
-        rows = cursor.fetchall()
-        for row in rows:
-            print(row)
+        # rows = cursor.fetchall()
+        # for row in rows:
+        #     print(row)
+
+        # using pandas for formatting 
+        df = pd.read_sql_query(select_query, connection)
+        print(df)
         
