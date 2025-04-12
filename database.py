@@ -55,6 +55,21 @@ def insert_data():
         cursor.execute(insert_query, data)
         print("Record inserted successfully!")
 
+
+def delete_record():
+    id = int(input("Enter the id of the record you would like to delete: "))
+
+    with db_connection('finances.db') as connection:
+        cursor = connection.cursor()
+        delete_query = '''
+            DELETE FROM Finances WHERE id = ?;
+        '''
+
+        cursor.execute(delete_query, (id,))
+        connection.commit()
+        print("Record deleted successfully")
+
+
 def list_all_records():
     with db_connection('finances.db') as connection:
         cursor = connection.cursor()
