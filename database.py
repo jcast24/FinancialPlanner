@@ -69,6 +69,23 @@ def delete_record():
         connection.commit()
         print("Record deleted successfully")
 
+def update_record():
+    id = int(input("Enter the id of the record you want to update: "))
+    new_monthly_spending = calculate_monthly_spending()
+    needs = new_monthly_spending[0]
+    wants = new_monthly_spending[1]
+    savings = new_monthly_spending[2]
+
+    date = get_date()
+    new_data = (savings, wants, needs, date, id)
+
+    with db_connection('finances.db') as connection:
+        cursor = connection.cursor()
+
+        update_query = ''' UPDATE Finances SET savings = ?, wants = ?, needs = ?, date = ? WHERE id = ? '''
+        cursor.execute(update_query, new_data)
+
+        print(f"Successfully updated record with the id of {id}")
 
 def list_all_records():
     with db_connection('finances.db') as connection:
