@@ -38,7 +38,7 @@ def menu():
                 print("Update record")
                 break
             case 4: 
-                print("Delete record")
+                database.delete_record()
                 break
             case 5:
                 print("Display visualization")
