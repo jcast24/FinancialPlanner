@@ -35,7 +35,7 @@ def menu():
                 database.insert_data()
                 break
             case 3:
-                print("Update record")
+                database.update_record()
                 break
             case 4: 
                 database.delete_record()
