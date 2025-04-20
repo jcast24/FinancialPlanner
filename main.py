@@ -1,11 +1,16 @@
 from datetime import datetime
 import database
 
-def get_date() -> str:
-    # now = datetime.now()
-    # date = now.strftime("%d%m%Y")
-    date = input("Enter the date (DD/MM/YYYY): ")
-    return date
+def get_date():
+    while True:
+        user_input = input("Enter a date: (DD/MM/YYYY): ")
+        try:
+            valid_date = datetime.strptime(user_input, "%d/%m/%Y")
+            break
+        except ValueError:
+            print("Invalid date format. Please try again")
+    return valid_date
+    
 
 def calculate_monthly_spending() -> list[float]:
     payAmount = float(input("Enter the amount for your paycheck: "))
